@@ -8,10 +8,10 @@
 <link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
 <link crossorigin="" href="https://i.postimg.cc" rel="preconnect">
-<link href="css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- ✅ Umami Analytics (NEW DOMAIN) -->
 <script defer="" src="script.js"></script>
+
 <style>
 body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .steps-box{color:#000;padding:20px;font-size:17px;text-align:center;line-height:1.6;max-width:500px;margin:20px auto;box-sizing:border-box;}
@@ -26,11 +26,11 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 .proof-headline{font-size:18px;font-weight:700;color:#222;text-align:center;margin-top:48px;margin-bottom:16px;}
 .proof-image{width:100%;max-width:400px;border-radius:10px;display:block;margin:0 auto 20px auto;box-shadow:0 6px 24px rgba(0,0,0,0.11);background:#f8f8f8;}
 </style>
+
 <script defer src="https://cloud.umami.is/script.js" data-website-id="7253fc3c-ea71-4814-8f98-9bf24ac8b8b4"></script>
 </head>
 
 <body>
-<!-- <h1></h1> -->
 <div class="header-block" style="text-align:center;margin-top:20px;margin-bottom:25px;">
   <img src="photo/dollari.png" style="width:80px;height:80px;border-radius:50%;margin-bottom:15px;">
   <h1 style="font-size:24px;font-weight:400;margin:0 0 8px;">Claim Your Gift Card Now!</h1>
@@ -46,9 +46,8 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
   <p>4. Claim Your Gift Card!</p>
 </div>
 
-<!-- ✅ CTR tracked CTA -->
-<a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click">
-  <img src="zBfxrrSy/shein.webp" style="width:45px;height:45px;margin-right:12px;border-radius:50%;">
+<a href="#" id="shein-btn" class="shein-btn" data-umami-event="offer-click" target="_blank" rel="noopener noreferrer">
+  <img src="zBfxrrSy/shein.webp" style="width:45px;height:45px;margin-right:12px;border-radius:50%;" alt="SHEIN">
   <div class="text-container" style="flex-grow:1;display:flex;flex-direction:column;align-items:flex-start;margin-left:25px;">
     <span id="giftcard-text">$750 SHEIN Gift Card</span>
     <span class="subtext">(Enter Email &amp; Complete Deals)</span>
@@ -59,57 +58,58 @@ body{background:#fff;margin:0;font-family:'Montserrat',sans-serif;color:#000;}
 <p class="trust-text">🔒 256-bit Encryption – Powered by Trusted Partners</p>
 
 <div class="proof-headline">Real Rewards. Real People. 👇</div>
-<img class="proof-image" src="photo/foto1.jpg">
-<img class="proof-image" src="photo/foto2.jpg">
+<img class="proof-image" src="photo/foto1.jpg" alt="Reward proof 1">
+<img class="proof-image" src="photo/foto2.jpg" alt="Reward proof 2">
 
 <script>
-const eligibleBox=document.getElementById('eligible-box');
-const btn=document.getElementById('shein-btn');
+const eligibleBox = document.getElementById('eligible-box');
+const btn = document.getElementById('shein-btn');
 
-const mainBucket=Math.random()<0.60;
+// US / CA / GB / AU
+const linkTier1 = "https://giftclick.org/aff_c?offer_id=1836&aff_id=155870";
 
-const linkMainT1="https://giftclick.org/aff_c?offer_id=1836&aff_id=155870";
-const linkMainROW="https://www.uplevelrewards.com/?Flow=656AE1C3-D3CE-3C2C-D9AE-1CBE7395FA7DE8814900&isPrePop=true&RBC=1&lp=limitedtime2xbonus&reward=shein7502xbonus1&o=218467&affsecid=5255930804&subaff1=155870&subaff2=208110&subaff3=264309&aff_pixel=&subaff4=shein7502xbonus1-default-40972-2xrewards&DVID=&bckm=1";
+// All other countries
+const linkGlobal = "https://taptrks.com/r/eyJ0Ijoic2hlaW4iLCJ1IjoiNjliMGRlOWVkNDkyZDNkNGFhMTAzZGVkIiwiYSI6Ijc1MCIsInRzIjoxNzczMjM4Njg5MjE3fQ";
 
-const linkUS="https://giftclick.org/aff_c?offer_id=1836&aff_id=155870";
-const linkT1="https://giftclick.org/aff_c?offer_id=1836&aff_id=155870";
-const linkROW="https://www.uplevelrewards.com/?Flow=656AE1C3-D3CE-3C2C-D9AE-1CBE7395FA7DE8814900&isPrePop=true&RBC=1&lp=limitedtime2xbonus&reward=shein7502xbonus1&o=218467&affsecid=5255930804&subaff1=155870&subaff2=208110&subaff3=264309&aff_pixel=&subaff4=shein7502xbonus1-default-40972-2xrewards&DVID=&bckm=1";
-
-function countryCodeToFlagEmoji(cc){
-  if(!cc||cc.length!==2)return"";
-  return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt()));
+function countryCodeToFlagEmoji(cc) {
+  if (!cc || cc.length !== 2) return "";
+  return String.fromCodePoint(...[...cc.toUpperCase()].map(c => 127397 + c.charCodeAt()));
 }
 
-function setEligible(cc,cn){
-  eligibleBox.textContent=`✅ You are eligible – ${cn} ${countryCodeToFlagEmoji(cc)}`;
+function setEligible(cc, cn) {
+  eligibleBox.textContent = `✅ You are eligible – ${cn} ${countryCodeToFlagEmoji(cc)}`;
 
-  if(mainBucket){
-    if(cc==="US"||cc==="CA"||cc==="GB"||cc==="AU"){
-      btn.href=linkMainT1;
-    } else {
-      btn.href=linkMainROW;
-    }
-    return;
-  }
-
-  if(cc==="US"){
-    btn.href=linkUS;
-  } else if(cc==="CA"||cc==="GB"||cc==="AU"){
-    btn.href=linkT1;
+  if (cc === "US" || cc === "CA" || cc === "GB" || cc === "AU") {
+    btn.href = linkTier1;
   } else {
-    btn.href=linkROW;
+    btn.href = linkGlobal;
   }
 }
 
 fetch('https://ipapi.co/json/')
-.then(r=>r.ok?r.json():Promise.reject())
-.then(d=>{if(d&&d.country&&d.country_name)setEligible(d.country,d.country_name);else throw 0;})
-.catch(()=>{
-  fetch('https://ipwho.is/')
-  .then(r=>r.ok?r.json():Promise.reject())
-  .then(d=>{if(d&&d.country_code&&d.country)setEligible(d.country_code,d.country);else throw 0;})
-  .catch(()=>{eligibleBox.textContent="✅ You are eligible 🌍";btn.href=mainBucket?linkMainROW:linkROW;});
-});
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(d => {
+    if (d && d.country && d.country_name) {
+      setEligible(d.country, d.country_name);
+    } else {
+      throw 0;
+    }
+  })
+  .catch(() => {
+    fetch('https://ipwho.is/')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => {
+        if (d && d.country_code && d.country) {
+          setEligible(d.country_code, d.country);
+        } else {
+          throw 0;
+        }
+      })
+      .catch(() => {
+        eligibleBox.textContent = "✅ You are eligible 🌍";
+        btn.href = linkGlobal;
+      });
+  });
 </script>
 
 </body>
